@@ -14,7 +14,7 @@ export class CityItemComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.newCityItem = this.weatherService.getNewCityItem();
+    // this.newCityItem = this.weatherService.getNewCityItem();
   }
 
 }
