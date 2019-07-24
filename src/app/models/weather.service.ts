@@ -29,11 +29,7 @@ export class WeatherService {
   }
 
 
-  getNewCityItem() {
-    console.log ('BBBBBBBBBBB' + this.newCity);
-    return this.newCity;
 
-  }
 
   setNewCityItem(): Weather [] {
     this.newCityItem.push(this.newCity);
