@@ -1,7 +1,14 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~@angular/material/theming';
 
-$weather-project: mat-palette($mat-indigo);
+@include mat-core();
+
+$weather-project-app-primary: mat-palette($mat-blue,400);
+$weather-project-app-accent: mat-palette($mat-blue-gray);
+
+$weather-project-app-theme: mat-light-theme($weather-project-app-primary, $weather-project-app-accent);
+
+@include angular-material-theme($weather-project-app-theme)
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

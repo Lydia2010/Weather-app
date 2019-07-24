@@ -1,26 +1,48 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'; // we need to communicate with API service
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {Cities} from './Cities';
+import {map} from 'rxjs/operators';
+import {Weather} from './Weather';
 
-interface Location {
-  latitude: string;
-  longitude: string;
 
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
- // private baseUrl = 'https://ipapi.co/json/';
+  private baseUrl = 'https://api.openweathermap.org/';
+  newCity: Weather;
+  newCityItem: Weather [] = [];
 
-  constructor(private http: HttpClient) { }
 
-    getLocation() {
-      return this.http.get<Location> ('https://ipapi.co/json/');
+  constructor(private http: HttpClient) {
+  }
 
+    searchWeather(cityName: string, countryCode: string): Observable<any> {
+    const url = this.baseUrl + 'data/2.5/weather?q=' + cityName + ',' + countryCode
+      + '&appid=767194a5bfc90703a89bfa0e7cedaa68&units=metric';
+    return this.http.get(url).pipe(
+      map(res => (this.newCity = new Weather(res))
+      ));
+  }
+
+
+  getNewCityItem() {
+    console.log ('BBBBBBBBBBB' + this.newCity);
+    return this.newCity;
+
+  }
+
+  setNewCityItem(): Weather [] {
+    this.newCityItem.push(this.newCity);
+    console.log (this.newCityItem);
+    return this.newCityItem;
+  }
+
+  deleteNewCityItem(i: number): void {
+    this.newCityItem.splice(i, 1);
   }
 }
 
-// return this.http.get<Location>('https://ipapi.co/json/')

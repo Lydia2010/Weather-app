@@ -1,3 +1,34 @@
-<p>
-  city-search works!
-</p>
+
+<form class="example-form" (ngSubmit)="getDetails()">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="City" [(ngModel)]="cityName" name="Search" required>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <input matInput placeholder="Country"  [(ngModel)]="countryCode" name="SearchCountry" required>
+    </mat-form-field></td>
+    <td class="example-full-width">
+     <button mat-icon-button type="submit"><mat-icon matSuffix color="primary">search</mat-icon>
+     </button>
+    </td>
+  </tr></table>
+</form>
+
+<div class="div-flex">
+  <mat-card>
+    <h5><mat-card-title>City</mat-card-title></h5>
+    <mat-list>
+      <mat-list-item *ngFor="let city of itemList; let i = index">
+
+        <button mat-icon-button>
+          <mat-icon mat-list-icon color="warn" (click)="delete(i)">delete</mat-icon>
+        </button>
+        <h4 mat-line>{{city.cityName}}</h4>
+        <p mat-line>{{city.temp}}C°</p>
+        <h6 mat-line>{{city.weather}}</h6>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>
+

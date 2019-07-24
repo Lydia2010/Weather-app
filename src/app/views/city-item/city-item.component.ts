@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {WeatherService} from '../../models/weather.service';
+import {Weather} from '../../models/Weather';
 
 @Component({
   selector: 'app-city-item',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityItemComponent implements OnInit {
 
-  constructor() { }
+  newCityItem: Weather;
+
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
+    this.newCityItem = this.weatherService.getNewCityItem();
   }
 
 }

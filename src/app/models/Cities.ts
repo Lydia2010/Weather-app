@@ -1,10 +1,17 @@
+
 export class Cities {
   cityName: string;
+  countryCode: string;
+  tempMax: number;
 
 
-  constructor(args?) {
-    if (args) {
-      this.cityName = args.cityName;
+
+
+  constructor(cityName, countryCode, tempMax) {
+    {
+      this.cityName = cityName;
+      this.countryCode = countryCode;
+      this.tempMax = tempMax;
     }
   }
 }
