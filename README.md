@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-view project https://lydia2010.github.io/weather-project/ . This is a weather app.  
+view project [Weather app] (https://lydia2010.github.io/weather-project/)   
 
 ## Development server
 
