@@ -9,8 +9,6 @@ export class Weather {
   weather: number;
 
 
-
-
   constructor(args?) {
     if (args) {
       this.cityName = args.name;

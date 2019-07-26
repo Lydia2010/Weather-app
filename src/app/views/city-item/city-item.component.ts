@@ -1,3 +1,5 @@
+// don't use for a moment
+
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../../models/weather.service';
 import {Weather} from '../../models/Weather';

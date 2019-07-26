@@ -1,4 +1,4 @@
-
+// don't use it for a moment
 export class Cities {
   cityName: string;
   countryCode: string;
